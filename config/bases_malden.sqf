@@ -17,6 +17,7 @@ DNC_Data_Bases =
 			"Main",
 			getMarkerPos "startLoc_west",
 			[
+				/*
 				[
 					["airborne", "gunship"],
 					HeliPadWest_0
@@ -25,6 +26,7 @@ DNC_Data_Bases =
 					["airborne", "gunship"],
 					HeliPadWest_1
 				]
+				*/
 			]
 		]
 	],
@@ -34,6 +36,7 @@ DNC_Data_Bases =
 			"Main",
 			getMarkerPos "startLoc_east",
 			[
+				/*
 				[
 					["airborne", "gunship"],
 					HeliPadEast_0
@@ -42,6 +45,7 @@ DNC_Data_Bases =
 					["airborne", "gunship"],
 					HeliPadEast_1
 				]
+				*/
 			]
 			
 		]

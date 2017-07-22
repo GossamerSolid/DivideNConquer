@@ -61,7 +61,7 @@ waitUntil {!isNil "DNC_Zones"};
 //Create zone capture markers
 {
 	private _captureMarker = createMarkerLocal [format["%1_Flag", str(_x select 1)], getPosASL (_x select 0)];
-	_captureMarker setMarkerTextLocal (_x select 1);
+	_captureMarker setMarkerTextLocal format["%1 (%2) [%3/%4]",(_x select 1),(_x select 2),((_x select 6) select 0),((_x select 6) select 1)];
 	_captureMarker setMarkerColorLocal (["zoneName", "class"] call fnc_clt_getColour);
 	_captureMarker setMarkerTypeLocal "mil_flag";
 	_captureMarker setMarkerSizeLocal [0.6, 0.6];

@@ -22,6 +22,11 @@ private _vehClass = (_gruntConfig select 2) select 0;
 private _unitArray = (_gruntConfig select 2) select 1;
 private _groupRespawnTime = _gruntConfig select 3;
 
+/* DEBUG - Override everything till it's fleshed out correctly */
+_groupType = "motorized";
+_vehClass = if (_side == west) then {"rhsusf_rg33_usmc_wd"} else {"rhs_tigr_m_3camo_msv"};
+_unitArray = if (_side == west) then {["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]} else {["rhs_msv_emr_sergeant", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]};
+
 //Create a name for the grunt group
 private _groupName = _gruntConfig select 0;
 missionNameSpace setVariable [format["%1_Name",str(_group)], _groupName, true];
@@ -62,7 +67,7 @@ _fncIssueOrders =
 			_wp setWaypointCompletionRadius 0;
 			_wp setWaypointBehaviour "AWARE";
 			_wp setWaypointCombatMode "RED";
-			_wp setWaypointSpeed "FULL";
+			_wp setWaypointSpeed "NORMAL";
 			_wp setWaypointStatements ['true', 'missionNameSpace setVariable [format["%1_OrdersRefresh",str(group this)], true];'];
 			_group setCurrentWaypoint _wp;
 		
@@ -297,7 +302,19 @@ while {true} do
 		private _waypoints = waypoints _group;
 		{deleteWaypoint [_group, _forEachIndex]} forEach _waypoints;
 	}
-	else //Group is alive, perform updates
+	else
+	{
+		//Check how many units are still alive (we don't want groups with less than 2 people alive to still exist - respawn them)
+		if (_unitCount <= 2) then
+		{
+			{
+				_x setDamage 1;
+			} forEach (units _group);
+		};
+	};
+	
+	//Group is alive, perform updates
+	if (_unitCount >= 1) 
 	{
 		//Group has no orders, issue new ones
 		if ((count _groupOrderArr) == 0) then
@@ -433,7 +450,7 @@ while {true} do
 												//Update waypoint type to move
 												{
 													_x setWaypointType "MOVE";
-													_x setWaypointSpeed "FULL";
+													_x setWaypointSpeed "NORMAL";
 												} forEach (waypoints _group);
 
 												//[side _group, "HQ"] commandChat format["Group %1 driving to objective!",_groupName];
@@ -508,7 +525,7 @@ while {true} do
 
 										//Group is close enough to destination or there's another reason to disembark, walk from here
 										private _zoneArr = DNC_Zones select (_groupOrderArr select 1);
-										if (((_groupVehicle distance2D (_zoneArr select 0)) <= 300) || _disembarkVehicle) then
+										if (((_groupVehicle distance2D (_zoneArr select 0)) <= 400) || _disembarkVehicle) then
 										{
 											//Timeout for vehicle usage
 											_groupVehicleTimeout = diag_tickTime;
@@ -547,8 +564,12 @@ while {true} do
 												} forEach (waypoints _group);
 											};
 											
-											//Delete the group vehicle
-											sleep 5;
+											//Delete the group vehicle and refund the group the value of the vehicle
+											uiSleep 5;
+											if (alive _groupVehicle) then
+											{
+												//Refund if it's still alive
+											};
 											deleteVehicle _groupVehicle;
 										};
 									};
