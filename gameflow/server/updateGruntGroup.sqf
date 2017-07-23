@@ -221,7 +221,7 @@ while {true} do
 				while {(_createPos select 0) == -1} do {_createPos = [getMarkerPos(format["startLoc_%1",_side]), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
 				
 				//Create armored vehicle
-				_groupVehicle = [_side, _createPos, _vehClass] call fnc_srv_createVehicle;
+				_groupVehicle = [_side, _createPos, (random 360), _vehClass] call fnc_srv_createVehicle;
 				
 				//Create units and put them inside the armored vehicle
 				{
@@ -265,8 +265,7 @@ while {true} do
 				if (!isNull _heliPadObj) then
 				{
 					//Create helicopter
-					_groupVehicle = [_side, (getPosATL _helipadObj), _vehClass] call fnc_srv_createVehicle;
-					_groupVehicle setDir (getDir _helipadObj);
+					_groupVehicle = [_side, (getPosATL _helipadObj), (getDir _helipadObj), _vehClass] call fnc_srv_createVehicle;
 					
 					//Set Flight Heights
 					switch (toLower(_groupType)) do
@@ -314,7 +313,7 @@ while {true} do
 	};
 	
 	//Group is alive, perform updates
-	if (_unitCount >= 1) 
+	if (_unitCount >= 1) then
 	{
 		//Group has no orders, issue new ones
 		if ((count _groupOrderArr) == 0) then
@@ -441,7 +440,7 @@ while {true} do
 												while {(_createPos select 0) == -1} do {_createPos = [getPosATL (leader _group), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
 				
 												//Create the group vehicle
-												_groupVehicle = [_side, _createPos, _vehClass] call fnc_srv_createVehicle;
+												_groupVehicle = [_side, _createPos, random(360), _vehClass] call fnc_srv_createVehicle;
 												if (_groupType == "airborne") then {_groupVehicle flyInHeight 25;};												
 												
 												//Move units of group into vehicle

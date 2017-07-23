@@ -2,9 +2,6 @@ private _zoneDataArr = DNC_Data_Zones select _this;
 
 if (!("server" call fnc_sys_verifyContext)) exitWith {[__FILE__, "error", "Unable to run script due to incorrect context"] spawn fnc_sys_writeError;};
 
-//TODO MOVE TO CONFIG FILES
-DNC_DATA_MAX_CAPTURE_SPEED = 3;
-
 //Spread it out a bit
 uiSleep random(5);
 
@@ -130,7 +127,7 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 				//Create a vehicle if the group has one
 				if (_vehClass != "") then
 				{
-					_groupVehicle = [_zoneOwner, _groupPos, _vehClass] call fnc_srv_createVehicle;
+					_groupVehicle = [_zoneOwner, _groupPos, random(360), _vehClass] call fnc_srv_createVehicle;
 					_groupVehicle setVariable ["DNC_ZoneDefense", true];
 				};
 				

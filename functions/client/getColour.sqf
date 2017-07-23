@@ -11,25 +11,25 @@ switch (toLower(_colourType)) do
 	case "sidewest";
 	case "sidefriendly":
 	{
-		_colourClass = profileNameSpace getVariable ["DNC_ColourFriendly", "ColorBlue_Goss"];
+		_colourClass = profileNameSpace getVariable ["DNC_ColourFriendly", "ColorMediumBlue_Goss"];
 	};
 	
 	case "sideeast";
 	case "sideenemy":
 	{
-		_colourClass = profileNameSpace getVariable ["DNC_ColourEnemy", "ColorOrangeRed_Goss"];
+		_colourClass = profileNameSpace getVariable ["DNC_ColourEnemy", "ColorFirebrick_Goss"];
 	};
 	
 	case "sideresistance";
 	case "sideguer";
 	case "sideneutral":
 	{
-		_colourClass = profileNameSpace getVariable ["DNC_ColourResistance", "ColorGold_Goss"];
+		_colourClass = profileNameSpace getVariable ["DNC_ColourResistance", "ColorGainsboro_Goss"];
 	};
 	
 	case "zonename":
 	{
-		_colourClass = profileNameSpace getVariable ["DNC_ColourZoneName", "ColorDimGrey_Goss"];
+		_colourClass = profileNameSpace getVariable ["DNC_ColourZoneName", "ColorBlack_Goss"];
 	}
 };
 

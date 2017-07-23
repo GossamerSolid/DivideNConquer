@@ -11,6 +11,8 @@ _unit setSkill ["courage", 1];
 _unit setSkill ["commanding", 1];
 _unit setSkill ["spotDistance", 0.7];
 _unit setSkill ["spotTime", 0.7];
+_unit setSkill ["aimingSpeed", 0.7];
+_unit setSkill ["aimingAccuracy", 0.35];
 _unit enableFatigue false;
 
 call compile format['

@@ -1,7 +1,5 @@
 private["_icon","_distance","_icon","_iconSize","_textSize","_colourMod","_currentMarkerEntry","_visualPos"];
 
-DNC_3DMarkers = true;
-
 if (DNC_3DMarkers) then
 {
 	//Draw friendly markers
@@ -23,13 +21,19 @@ if (DNC_3DMarkers) then
 			if (_distance > 75 && _distance <= 100) then {_iconSize = 0.5; _textSize = 0.0275};
 			if (_distance > 100 && _distance <= 150) then {_iconSize = 0.4; _textSize = 0.0250};
 			if (_distance > 150) then {_iconSize = 0.3; _textSize = 0.0200};
+			
+			/* TODO - work with this
+			_minSize = 0.25;
+			_furthestDistance = 20;
+			_iconSize = linearConversion[ 0, 20, player distance2D _target, 1, _minSize, true ];
+			 */
 
 			//Modify alpha based off of client settings
 			_colourMod = _currentMarkerEntry select 4;
 			_colourMod set [3, 1]; //TODO Configurable
 
-			//Visual Position
-			_visualPos = _currentMarkerEntry select 5;
+			//Visual Position (Make it look smooth)
+			_visualPos = (_currentMarkerEntry select 5);
 
 			drawIcon3D
 			[

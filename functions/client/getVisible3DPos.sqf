@@ -1,7 +1,9 @@
 private _objRef = _this select 0;
 private _objType = _this select 1;
 
-private _visualPos = if (surfaceIsWater (visiblePositionASL _objRef)) then {visiblePositionASL _objRef} else {getPosATLVisual _objRef};
+private _visualPos = getPosWorld _objRef;
+_visualPos = [(_visualPos select 0),(_visualPos select 1), 0];
+
 switch (_objType) do
 {
 	case "inf":

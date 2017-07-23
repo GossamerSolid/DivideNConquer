@@ -9,6 +9,7 @@ waitUntil {scriptDone _commonInitCall};
 //Client Globals
 DNC_CVAR_DYN_MARKERS = [];
 DNC_CVAR_GRUNT_GROUPS = [];
+DNC_3DMarkers = true;
 
 //Client functions
 fnc_clt_draw3DMarkers = compile preprocessFileLineNumbers "functions\client\draw3DMarkers.sqf";
@@ -17,11 +18,12 @@ fnc_clt_getColour = compile preprocessFileLineNumbers "functions\client\getColou
 fnc_clt_getVisible3DPos = compile preprocessFileLineNumbers "functions\client\getVisible3DPos.sqf";
 fnc_clt_requestServerExec = compile preprocessFileLineNumbers "functions\client\requestServerExec.sqf";
 fnc_clt_serverFncExec = compile preprocessFileLineNumbers "functions\client\serverFncExec.sqf";
-fnc_clt_updateZone = compile preprocessFileLineNumbers "functions\client\updateZone.sqf";
 fnc_clt_zoneCaptured = compile preprocessFileLineNumbers "functions\client\zoneCaptured.sqf";
 
 //Client gameflow
 gf_clt_updateDynamicMarkers = compile preprocessFileLineNumbers "gameflow\client\updateDynamicMarkers.sqf";
+gf_clt_updateHUD = compile preprocessFileLineNumbers "gameflow\client\updateHUD.sqf";
+gf_clt_updateZones = compile preprocessFileLineNumbers "gameflow\client\updateZones.sqf";
 
 //Server remote execution
 DNC_SERVER_FNC_EXEC = [];
@@ -61,23 +63,26 @@ waitUntil {!isNil "DNC_Zones"};
 //Create zone capture markers
 {
 	private _captureMarker = createMarkerLocal [format["%1_Flag", str(_x select 1)], getPosASL (_x select 0)];
-	_captureMarker setMarkerTextLocal format["%1 (%2) [%3/%4]",(_x select 1),(_x select 2),((_x select 6) select 0),((_x select 6) select 1)];
+	_captureMarker setMarkerTextLocal format["%1 ($%2) [%3/%4]",(_x select 1),(_x select 2),((_x select 6) select 0),((_x select 6) select 1)];
 	_captureMarker setMarkerColorLocal (["zoneName", "class"] call fnc_clt_getColour);
 	_captureMarker setMarkerTypeLocal "mil_flag";
 	_captureMarker setMarkerSizeLocal [0.6, 0.6];
 } forEach DNC_Zones;
 
-//Bind change event for Zones to perform updates
-"DNC_Zones" addPublicVariableEventHandler
-{
-	(_this select 1) spawn fnc_clt_updateZone;
-};
+//Zone Display updates
+[] spawn gf_clt_updateZones;
+
+//HUD
+[] spawn gf_clt_updateHUD;
 
 //Dev mode
 if (DNC_DEVMODE) then
 {
 	onMapSingleClick "(vehicle player) setPos _pos";
 };
+
+//BIS Group System
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 //Run marker updates
 [] spawn gf_clt_updateDynamicMarkers;

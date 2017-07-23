@@ -28,8 +28,6 @@ Data Structure:
 12 - Is visible to player's eyes
 */
 
-DNC_DATA_MARKERUPDATE_RATE = 0.1;
-
 while {true} do //TODO
 {
 	//Local array which will replace the global afterwards
