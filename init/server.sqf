@@ -1,14 +1,16 @@
 if (!("server" call fnc_sys_verifyContext)) exitWith {[__FILE__, "error", "Unable to run script due to incorrect context"] spawn fnc_sys_writeError;};
 
-DNC_ServerInit = false;
-DNC_SESSIONUIDS = [];
-DNC_INCOME_WEST = 0;
-DNC_INCOME_EAST = 0;
-
 //Initialize common
 private _commonInit = compileFinal preprocessFileLineNumbers "init\common.sqf";
 private _commonInitCall = [] spawn _commonInit;
 waitUntil {scriptDone _commonInitCall};
+
+DNC_ServerInit = false;
+DNC_SESSIONUIDS = [];
+DNC_INCOME_WEST = 0;
+DNC_INCOME_EAST = 0;
+DNC_INCOME_TIME = diag_tickTime;
+publicVariable "DNC_INCOME_TIME";
 
 //Server gameflow
 gf_srv_updateGarbageCollector = compile preprocessFileLineNumbers "gameflow\server\updateGarbageCollector.sqf";
@@ -18,6 +20,7 @@ gf_srv_updateZone = compile preprocessFileLineNumbers "gameflow\server\updateZon
 
 //Server functions
 fnc_srv_addToGarbageCollector = compile preprocessFileLineNumbers "functions\server\addToGarbageCollector.sqf";
+fnc_srv_changeMoney = compile preprocessFileLineNumbers "functions\server\changeMoney.sqf";
 fnc_srv_createUnit = compile preprocessFileLineNumbers "functions\server\createUnit.sqf";
 fnc_srv_createVehicle = compile preprocessFileLineNumbers "functions\server\createVehicle.sqf";
 fnc_srv_unitKilled = compile preprocessFileLineNumbers "functions\server\unitKilled.sqf";

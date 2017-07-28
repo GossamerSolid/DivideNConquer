@@ -42,6 +42,23 @@ switch (_function) do
 			};
 		};
 	};
+	
+	//Sounds
+	case "sound":
+	{
+		switch (_subFunction) do
+		{
+			case "playSound":
+			{
+				playSound _parameters;
+			};
+			
+			default
+			{
+				[__FILE__, "error", format["Received an unknown request from the server - %1", _this]] spawn fnc_sys_writeError;
+			};
+		};
+	};
 		
 	default
 	{

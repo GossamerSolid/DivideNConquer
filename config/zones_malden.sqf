@@ -22,12 +22,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -42,12 +48,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
-			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]		
+			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -63,12 +75,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 
@@ -83,12 +101,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -103,12 +127,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -123,12 +153,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -143,12 +179,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -163,12 +205,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -183,12 +231,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -203,12 +257,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -223,12 +283,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -243,12 +309,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -263,12 +335,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	],
 	
@@ -283,12 +361,18 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
+			["", ["I_G_Soldier_TL_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_AR_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]],
+			["I_G_Offroad_01_armed_F", ["I_G_Soldier_lite_F", "I_G_Soldier_lite_F"]]
+			/*
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["", ["rhsgref_cdf_reg_squadleader", "rhsgref_cdf_reg_grenadier", "rhsgref_cdf_reg_medic", "rhsgref_cdf_reg_machinegunner", "rhsgref_cdf_reg_marksman", "rhsgref_cdf_reg_grenadier_rpg", "rhsgref_cdf_reg_grenadier_rpg"]],
 			["rhsgref_cdf_bmp1d", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_t72ba_tv", ["rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew", "rhsgref_cdf_reg_crew"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]],
 			["rhsgref_cdf_reg_uaz_dshkm", ["rhsgref_cdf_reg_rifleman", "rhsgref_cdf_reg_rifleman"]]
+			*/
 		]
 	]
 ];

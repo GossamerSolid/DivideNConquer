@@ -10,6 +10,7 @@ waitUntil {scriptDone _commonInitCall};
 DNC_CVAR_DYN_MARKERS = [];
 DNC_CVAR_GRUNT_GROUPS = [];
 DNC_3DMarkers = true;
+if (isNil "DNC_CVAR_INCOME") then {DNC_CVAR_INCOME = 0};
 
 //Client functions
 fnc_clt_draw3DMarkers = compile preprocessFileLineNumbers "functions\client\draw3DMarkers.sqf";
@@ -23,6 +24,7 @@ fnc_clt_zoneCaptured = compile preprocessFileLineNumbers "functions\client\zoneC
 //Client gameflow
 gf_clt_updateDynamicMarkers = compile preprocessFileLineNumbers "gameflow\client\updateDynamicMarkers.sqf";
 gf_clt_updateHUD = compile preprocessFileLineNumbers "gameflow\client\updateHUD.sqf";
+gf_clt_updateHUDSlave = compile preprocessFileLineNumbers "gameflow\client\updateHUDSlave.sqf";
 gf_clt_updateZones = compile preprocessFileLineNumbers "gameflow\client\updateZones.sqf";
 
 //Server remote execution
@@ -73,7 +75,9 @@ waitUntil {!isNil "DNC_Zones"};
 [] spawn gf_clt_updateZones;
 
 //HUD
+DNC_CVAR_UI_SideGruntCounts = [0, 0];
 [] spawn gf_clt_updateHUD;
+[] spawn gf_clt_updateHUDSlave;
 
 //Dev mode
 if (DNC_DEVMODE) then

@@ -17,7 +17,8 @@ DNC_Data_Grunts =
 			"Alpha",
 			"Motorized",
 			[
-				"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			30
 		],
@@ -26,7 +27,8 @@ DNC_Data_Grunts =
 			"Bravo",
 			"Motorized",
 			[
-				"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			30
 		],
@@ -35,7 +37,8 @@ DNC_Data_Grunts =
 			"Charlie",
 			"Motorized",
 			[
-				"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			30
 		],
@@ -44,7 +47,8 @@ DNC_Data_Grunts =
 			"Delta",
 			"Motorized",
 			[
-				"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			30
 		],
@@ -53,7 +57,8 @@ DNC_Data_Grunts =
 			"Echo",
 			"Armored",
 			[
-				"rhsusf_m1a1aim_tuski_wd", ["rhsusf_usmc_marpat_wd_combatcrewman", "rhsusf_usmc_marpat_wd_combatcrewman", "rhsusf_usmc_marpat_wd_combatcrewman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			120
 		],
@@ -62,7 +67,8 @@ DNC_Data_Grunts =
 			"Foxtrot",
 			"Armored",
 			[
-				"rhsusf_m1a1aim_tuski_wd", ["rhsusf_usmc_marpat_wd_combatcrewman", "rhsusf_usmc_marpat_wd_combatcrewman", "rhsusf_usmc_marpat_wd_combatcrewman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			120
 		],
@@ -71,7 +77,8 @@ DNC_Data_Grunts =
 			"Golf",
 			"Airborne",
 			[
-				"RHS_UH60M", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			120
 		],
@@ -80,7 +87,8 @@ DNC_Data_Grunts =
 			"Hotel",
 			"Gunship",
 			[
-				"RHS_AH64D_wd", ["rhsusf_army_ucp_helipilot", "rhsusf_army_ucp_helipilot"]
+				"B_LSV_01_unarmed_F", ["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]
+				//"rhsusf_M1078A1P2_wd_open_fmtv_usarmy", ["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]
 			],
 			300
 		]
@@ -91,7 +99,8 @@ DNC_Data_Grunts =
 			"Alpha",
 			"Motorized",
 			[
-				"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			30
 		],
@@ -100,7 +109,8 @@ DNC_Data_Grunts =
 			"Bravo",
 			"Motorized",
 			[
-				"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			30
 		],
@@ -109,7 +119,8 @@ DNC_Data_Grunts =
 			"Charlie",
 			"Motorized",
 			[
-				"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			30
 		],
@@ -118,7 +129,8 @@ DNC_Data_Grunts =
 			"Delta",
 			"Motorized",
 			[
-				"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			30
 		],
@@ -127,7 +139,8 @@ DNC_Data_Grunts =
 			"Echo",
 			"Armored",
 			[
-				"rhs_t90a_tv", ["rhs_vdv_flora_combatcrew", "rhs_vdv_flora_combatcrew", "rhs_vdv_flora_combatcrew"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			120
 		],
@@ -136,7 +149,8 @@ DNC_Data_Grunts =
 			"Foxtrot",
 			"Armored",
 			[
-				"rhs_t90a_tv", ["rhs_vdv_flora_combatcrew", "rhs_vdv_flora_combatcrew", "rhs_vdv_flora_combatcrew"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			120
 		],
@@ -145,7 +159,8 @@ DNC_Data_Grunts =
 			"Golf",
 			"Airborne",
 			[
-				"RHS_Mi8mt_vdv", ["rhs_vdv_recon_sergeant", "rhs_vdv_recon_rifleman_lat", "rhs_vdv_recon_rifleman_asval", "rhs_vdv_recon_rifleman_ak103", "rhs_vdv_recon_arifleman", "rhs_vdv_recon_rifleman_asval", "rhs_vdv_recon_rifleman_lat", "rhs_vdv_recon_rifleman_lat"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			120
 		],
@@ -154,7 +169,8 @@ DNC_Data_Grunts =
 			"Hotel",
 			"Gunship",
 			[
-				"RHS_Mi24V_UPK23_vdv", ["rhs_pilot_combat_heli", "rhs_pilot_combat_heli"]
+				"O_LSV_02_unarmed_F", ["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_HAT_F"]
+				//"rhs_gaz66o_msv", ["rhs_msv_emr_sergeant", "rhs_msv_emr_medic", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]
 			],
 			300
 		]

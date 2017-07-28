@@ -60,15 +60,15 @@ if (_name != "__SERVER__") then
 	};
 	
 	//Send variables to client
-	DNC_PLAYER_MONEY = _sessionProfile select 0;
-	(owner _playerObj) publicVariableClient "DNC_PLAYER_MONEY";
+	DNC_CVAR_MONEY = _sessionProfile select 0;
+	(owner _playerObj) publicVariableClient "DNC_CVAR_MONEY";
 	
 	DNC_PLAYER_LP = _sessionProfile select 1;
 	(owner _playerObj) publicVariableClient "DNC_PLAYER_LP";
 	
-	DNC_PLAYER_LEVEL = _sessionProfile select 2;
-	(owner _playerObj) publicVariableClient "DNC_PLAYER_LEVEL";
+	DNC_CVAR_LEVEL = _sessionProfile select 2;
+	(owner _playerObj) publicVariableClient "DNC_CVAR_LEVEL";
 	
-	DNC_PLAYER_XP = _sessionProfile select 3;
-	(owner _playerObj) publicVariableClient "DNC_PLAYER_XP";
+	DNC_CVAR_XP = _sessionProfile select 3;
+	(owner _playerObj) publicVariableClient "DNC_CVAR_XP";
 };

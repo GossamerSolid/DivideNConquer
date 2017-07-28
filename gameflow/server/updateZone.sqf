@@ -119,7 +119,7 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 				private _currGroup = createGroup _zoneOwner;
 				_currGroup deleteGroupWhenEmpty true;
 				
-				private _classForPosition = if (_vehClass != "") then {_vehClass} else {"rhsusf_usmc_marpat_wd_squadleader"};
+				private _classForPosition = if (_vehClass != "") then {_vehClass} else {"O_Soldier_GL_F"};
 				
 				private _groupPos = [(getPosATL _zoneObj), random(50), random(_captureRadius), false, [false], _classForPosition] Call fnc_cmn_getRandomSafePos;
 				while {(_groupPos select 0) == -1} do {_groupPos = [(getPosATL _zoneObj), random(50), random(_captureRadius), false, [false], _classForPosition] Call fnc_cmn_getRandomSafePos;};
