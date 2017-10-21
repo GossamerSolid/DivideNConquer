@@ -11,7 +11,7 @@ DNC_DATA_BASE_LP = 15;
 DNC_DATA_MAX_LP = 20;
 
 //Amount of seconds per income calculation
-DNC_DATA_INCOME_RATE = 60;
+DNC_DATA_INCOME_RATE = 5; //60;
 
 //Guaranteed minimum income for the team
 DNC_DATA_BASE_INCOME = 500;

@@ -75,6 +75,7 @@ waitUntil {!isNil "DNC_Zones"};
 [] spawn gf_clt_updateZones;
 
 //HUD
+waitUntil{!isNil "DNC_CVAR_MONEY"};
 DNC_CVAR_UI_SideGruntCounts = [0, 0];
 [] spawn gf_clt_updateHUD;
 [] spawn gf_clt_updateHUDSlave;

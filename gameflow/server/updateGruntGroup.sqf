@@ -25,8 +25,8 @@ private _groupRespawnTime = _gruntConfig select 3;
 
 /* DEBUG - Override everything till it's fleshed out correctly */
 _groupType = "motorized";
-_vehClass = if (_side == west) then {"B_LSV_01_unarmed_F"} else {"O_LSV_02_unarmed_F"}; //{"rhsusf_rg33_usmc_wd"} else {"rhs_tigr_m_3camo_msv"};
-_unitArray = if (_side == west) then {["B_Soldier_TL_F", "B_soldier_M_F", "B_Soldier_GL_F", "B_HeavyGunner_F", "B_soldier_LAT_F", "B_soldier_HAT_F"]} else {["O_LSV_02_unarmed_F", "O_soldier_M_F", "O_Soldier_GL_F", "O_HeavyGunner_F", "O_soldier_LAT_F", "O_soldier_AT_F"]}; //{["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]} else {["rhs_msv_emr_sergeant", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]};
+_vehClass = if (_side == west) then {"rhsusf_rg33_usmc_wd"} else {"rhs_tigr_m_3camo_msv"};
+_unitArray = if (_side == west) then {["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]} else {["rhs_msv_emr_sergeant", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]};
 _groupRespawnTime = 30;
 
 //Create a name for the grunt group
