@@ -43,7 +43,7 @@ DNC_CLIENT_FNC_EXEC = [];
 //Initialize zones //TODO - Move updates to HC2 (we want defenders on their own HC)
 DNC_Zones = [];
 {
-	DNC_Zones pushBack [_x select 0, _x select 1, _x select 2, _x select 4, [0, 0, 0], resistance, [_x select 5, _x select 5], false, diag_tickTime, []];
+	DNC_Zones pushBack [_x select 0, _x select 1, _x select 2, _x select 4, [0, 0, 0], resistance, [_x select 5, _x select 5], false, diag_tickTime, [], false];
 	
 	_forEachIndex spawn gf_srv_updateZone;
 } forEach DNC_Data_Zones;

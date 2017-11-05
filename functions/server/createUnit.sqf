@@ -18,11 +18,6 @@ _unit enableFatigue false;
 call compile format['
 _unit addMPEventHandler ["MPKilled",
 {
-	if (local (_this select 0)) then 
-	{
-		(_this select 0) addRating 99999;
-	}; 
-	
 	if (isServer) then 
 	{
 		[(_this select 0), %1, false, (_this select 1), (side (group (_this select 1))), (isPlayer (_this select 1))] call fnc_srv_unitKilled;

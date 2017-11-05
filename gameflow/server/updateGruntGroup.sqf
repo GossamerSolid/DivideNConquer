@@ -25,9 +25,15 @@ private _groupRespawnTime = _gruntConfig select 3;
 
 /* DEBUG - Override everything till it's fleshed out correctly */
 _groupType = "motorized";
-_vehClass = if (_side == west) then {"rhsusf_rg33_usmc_wd"} else {"rhs_tigr_m_3camo_msv"};
-_unitArray = if (_side == west) then {["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger", "rhsusf_usmc_marpat_wd_marksman"]} else {["rhs_msv_emr_sergeant", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa", "rhs_msv_emr_marksman"]};
+private _vehID = if (_side == west) then {"rhsRG33Unarmed"} else {"rhsTigrUnarmed"};
+_unitArray = if (_side == west) then {["rhsusf_usmc_marpat_wd_squadleader", "rhsusf_usmc_marpat_wd_grenadier", "rhsusf_usmc_marpat_wd_autorifleman_m249", "rhsusf_usmc_marpat_wd_machinegunner", "rhsusf_usmc_marpat_wd_smaw", "rhsusf_usmc_marpat_wd_stinger"]} else {["rhs_msv_emr_sergeant", "rhs_msv_emr_grenadier", "rhs_msv_emr_RShG2", "rhs_msv_emr_machinegunner", "rhs_msv_emr_at", "rhs_msv_emr_aa"]};
 _groupRespawnTime = 30;
+missionNameSpace setVariable [format["%1_Type",str(_group)], _groupType];
+
+//Find vehicle config array
+private _vehConfigArr = _vehID call fnc_cmn_getVehicleConfig;
+_vehClass = _vehConfigArr select 1;
+private _vehCost = _vehConfigArr select 4;
 
 //Create a name for the grunt group
 private _groupName = _gruntConfig select 0;
@@ -43,6 +49,9 @@ private _basesArray = if (_side == west) then {DNC_Bases_West} else {DNC_Bases_E
 private _mainBase = [];
 private _mainBaseIdx = ["Main", 0, _basesArray] Call fnc_cmn_getArrayIndex;
 if (_mainBaseIdx != -1) then {_mainBase = _basesArray select _mainBaseIdx};
+
+//Used for respawn positions
+private _lastKnownPosition = getMarkerPos(format["startLoc_%1",_side]);
 
 //Issue orders function
 _fncIssueOrders =
@@ -97,6 +106,24 @@ _fncIssueOrders =
 		
 			//[side _group, "HQ"] commandChat format["Group %1 supporting group %2 at %3",_groupName, _friendlyGroupName, (_zoneArr select 1)];
 		};
+		
+		case "defend":
+		{
+			private _zoneArr =+ DNC_Zones select (_ordersArr select 1);
+			
+			private _defendPos = [getPosATL (_zoneArr select 0), random(25 * 0.25), 50, false, [false], ""] call fnc_cmn_getRandomSafePos;
+			
+			private _wp = _group addWaypoint [_defendPos, random(50)];
+			_wp setWaypointType "SAD";
+			_wp setWaypointCompletionRadius 0;
+			_wp setWaypointBehaviour "AWARE";
+			_wp setWaypointCombatMode "RED";
+			_wp setWaypointSpeed "NORMAL";
+			_wp setWaypointStatements ['true', 'missionNameSpace setVariable [format["%1_OrdersRefresh",str(group this)], true];'];
+			_group setCurrentWaypoint _wp;
+		
+			//[side _group, "HQ"] commandChat format["Group %1 attacking %2",_groupName, (_zoneArr select 1)];
+		};
 	};
 	
 	//Update
@@ -116,11 +143,23 @@ _fncValidateOrders =
 		{
 			private _zoneArr =+ DNC_Zones select (_ordersArr select 1);
 			
-			//If side now owns the zone, clear orders
+			//If side now owns the zone
 			if ((_zoneArr select 5) == (side _group)) exitWith 
 			{
-				_ordersValid = false; 
-				missionNameSpace setVariable [format["%1_Orders",str(_group)], []];
+				private _zoneStrengthFull = if (((_zoneArr select 6) select 0) == ((_zoneArr select 6) select 1)) then {true} else {false};
+				private _enemiesPresent = [getPosATL (_zoneArr select 0), (_zoneArr select 3) + 200, (side _group)] call fnc_cmn_getEnemiesInRadius;
+				
+				//Zone is secure, clear orders
+				if (_zoneStrengthFull && ((count _enemiesPresent) == 0)) then 
+				{
+					_ordersValid = false; 
+					missionNameSpace setVariable [format["%1_Orders",str(_group)], []];
+				}
+				else //Change to defend order
+				{
+					missionNameSpace setVariable [format["%1_Orders",str(_group)], ["defend", (_ordersArr select 1)]];
+					missionNameSpace setVariable [format["%1_OrdersRefresh",str(_group)], true];
+				};
 			};
 		};
 		
@@ -161,11 +200,101 @@ _fncValidateOrders =
 		
 		case "defend":
 		{
+			private _zoneArr =+ DNC_Zones select (_ordersArr select 1);
 			
+			//If the enemy now owns this zone, counter attack
+			if ((_zoneArr select 5) != (side _group)) exitWith
+			{
+				missionNameSpace setVariable [format["%1_Orders",str(_group)], ["defend", (_ordersArr select 1)]];
+				missionNameSpace setVariable [format["%1_OrdersRefresh",str(_group)], true];
+			};
+			
+			//If the zone is at 100% strength and there's no enemies within the radius, then clear orders
+			private _zoneStrengthFull = if (((_zoneArr select 6) select 0) == ((_zoneArr select 6) select 1)) then {true} else {false};
+			private _enemiesPresent = [getPosATL (_zoneArr select 0), (_zoneArr select 3) + 200, (side _group)] call fnc_cmn_getEnemiesInRadius;
+			if (_zoneStrengthFull && ((count _enemiesPresent) == 0)) exitWith 
+			{
+				_ordersValid = false; 
+				missionNameSpace setVariable [format["%1_Orders",str(_group)], []];
+			};
 		};
 	};
 	
 	_ordersValid 
+};
+
+//Get spawn location based on orders
+_fncGetSpawnLocation =
+{
+	private _group = _this select 0;
+	private _lastKnownPosition = _this select 1;
+	
+	private _spawnLocationArr = [getMarkerPos(format["startLoc_%1", (side _group)]), 25, 50];
+	
+	//Get an array of valid spawn locations
+	private _validSpawnLocs = [(side _group), _lastKnownPosition] call fnc_cmn_getValidSpawnLocations;
+
+	//Find a location based off of current orders
+	private _groupOrdersArr = missionNameSpace getVariable [format["%1_Orders",str(_group)], []];
+	private _groupType = missionNameSpace getVariable [format["%1_Type",str(_group)], "infantry"];
+	if ((count _groupOrdersArr) > 0) then
+	{
+		//Based on group type (TODO - DO THE OTHER TYPES!!!)
+		private _groupOrderPos = [0, 0, 0];
+		switch (toLower(_groupType)) do
+		{
+			case "infantry";
+			case "motorized";
+			case "armored":
+			{
+				//Based on order type (TODO - DO SUPPORT TYPE!!!)
+				switch (toLower(_groupOrdersArr select 0)) do
+				{
+					case "attack";
+					case "defend":
+					{
+						private _zoneArr = DNC_Zones select (_groupOrdersArr select 1);
+						_groupOrderPos = getPosATL (_zoneArr select 0);
+					};
+					default
+					{
+						[__FILE__, "error", "fncGetSpawnLocation - Unknown group order: %1 %2", toLower(_groupOrdersArr select 0), _this] spawn fnc_sys_writeError;
+					};
+				};
+			};
+			default
+			{
+				[__FILE__, "error", "fncGetSpawnLocation - Unknown group type: %1 %2", toLower(_groupType), _this] spawn fnc_sys_writeError;
+			};
+			
+			//Against the valid spawn locations, find the closest one to our group order position
+			private _sortedLocationsByOrders = [];
+			{
+				private _currEntry =+ _x;
+				private _currDistance = _groupOrderPos distance2D (_currEntry select 1);
+				_currEntry set [0, _currDistance];
+				
+				_sortedLocationsByOrders pushBack _currEntry;
+			} forEach _validSpawnLocs;
+			if ((count _sortedLocationsByOrders) > 0) then
+			{
+				_sortedLocationsByOrders sort true;
+				_spawnLocationArr = _validSpawnLocs select 0;
+			}
+			else
+			{
+				[__FILE__, "error", "fncGetSpawnLocation - Unable to pick a spawn location based off of orders: %1", _this] spawn fnc_sys_writeError;
+			};
+		};
+	}
+	else
+	{
+		//No orders, pick a random spawn location
+		private _randomSpawnLoc = selectRandom _validSpawnLocs;
+		_spawnLocationArr = [_randomSpawnLoc select 1, (_randomSpawnLoc select 4) select 0, (_randomSpawnLoc select 4) select 1];
+	};
+	
+	_spawnLocationArr
 };
 
 //Main logic loop TODO - only when gamestate is active
@@ -185,19 +314,21 @@ while {true} do
 	if (_unitCount == 0) then
 	{	
 		//Group respawning
+		private _spawnPositionArr = [getMarkerPos(format["startLoc_%1",_side]), 25, 50];
 		if (!_firstSpawn) then 
 		{
 			{deleteVehicle _x} forEach (units _group);
 			uiSleep _groupRespawnTime;
 			missionNameSpace setVariable [format["%1_OrdersRefresh",str(_group)], true];
 			
-			//TODO Figure out new spawn location based on previous orders and current situation
+			//Figure out new spawn location based on previous orders and current situation
+			_spawnPositionArr = [_group, _lastKnownPosition] call _fncGetSpawnLocation;
 		};
 		_firstSpawn = false;
 		
 		//Nullify group's previous vehicle
 		_groupVehicle = objNull;
-		_groupVehicleTimeout = diag_tickTime - 60;
+		_groupVehicleTimeout = -999999999;
 		_groupVehicleStuck = 0;
 		
 		switch (toLower(_groupType)) do
@@ -206,8 +337,8 @@ while {true} do
 			case "motorized":
 			{
 				//Get creation position
-				private _createPos = [getMarkerPos(format["startLoc_%1",_side]), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
-				while {(_createPos select 0) == -1} do {_createPos = [getMarkerPos(format["startLoc_%1",_side]), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
+				private _createPos = [(_spawnPositionArr select 0), (_spawnPositionArr select 1), (_spawnPositionArr select 2), false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
+				while {(_createPos select 0) == -1} do {_createPos = [(_spawnPositionArr select 0), (_spawnPositionArr select 1), (_spawnPositionArr select 2), false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
 				
 				//Create units
 				{
@@ -218,18 +349,30 @@ while {true} do
 			//Instantly spawn group vehicle and move crew inside
 			case "armored":
 			{
-				//Get creation position
-				private _createPos = [getMarkerPos(format["startLoc_%1",_side]), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
-				while {(_createPos select 0) == -1} do {_createPos = [getMarkerPos(format["startLoc_%1",_side]), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
-				
-				//Create armored vehicle
-				_groupVehicle = [_side, _createPos, (random 360), _vehClass] call fnc_srv_createVehicle;
-				
-				//Create units and put them inside the armored vehicle
+				//Group can't do anything if they can't afford the vehicle
+				private _groupMoney = missionNameSpace getVariable [format["%1_Money", str(_group)], 0];
+				if (_groupMoney >= _vehCost) then
 				{
-					private _unit = [_side, _group, getMarkerPos(format["startLoc_%1",_side]), _x] call fnc_srv_createUnit;
-					_unit moveInAny _groupVehicle;
-				} forEach _unitArray;
+					//Get creation position
+					private _createPos = [(_spawnPositionArr select 0), (_spawnPositionArr select 1), (_spawnPositionArr select 2), false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
+					while {(_createPos select 0) == -1} do {_createPos = [(_spawnPositionArr select 0), (_spawnPositionArr select 1), (_spawnPositionArr select 2), false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
+					
+					//Create armored vehicle
+					_groupVehicle = [_side, _createPos, (random 360), _vehID] call fnc_srv_createVehicle;
+					
+					//Create units and put them inside the armored vehicle
+					{
+						private _unit = [_side, _group, getMarkerPos(format["startLoc_%1",_side]), _x] call fnc_srv_createUnit;
+						_unit moveInAny _groupVehicle;
+					} forEach _unitArray;
+					
+					//Remove money from group for vehicle cost
+					[_group, "grunt", "-", _vehCost] spawn fnc_srv_changeMoney;
+				}
+				else
+				{
+					uiSleep 15;
+				};
 			};
 			
 			//Airborne needs to spawn on a main base helipad (can deploy helicopter in the field afterwards)
@@ -237,54 +380,66 @@ while {true} do
 			case "airborne";
 			case "gunship":
 			{
-				//Figure out which helipad the gunship can spawn at
-				private _helipadObj = objNull;
-				private _heliPads = [];
+				//Group can't do anything if they can't afford the vehicle
+				private _groupMoney = missionNameSpace getVariable [format["%1_Money", str(_group)], 0];
+				if (_groupMoney >= _vehCost) then
 				{
-					private _currSpawnArr = _x;
-					if (toLower(_groupType) in (_currSpawnArr select 0)) then {_heliPads pushBack (_currSpawnArr select 1);};
-				} forEach (_mainBase select 2);
-				{
-					//Check if there are objects blocking the helipad
-					private _nearEntities = [];
-					private _nearEntities = nearestObjects [(getPosATL _x), ["Car","Tank","Air","Ship","CAManBase"], 10];
-								
-					//If nearest object is dead, clean it up
-					if ((count _nearEntities) > 0) then
+					//Figure out which helipad the gunship can spawn at
+					private _helipadObj = objNull;
+					private _heliPads = [];
 					{
-						private _nearest = _nearEntities select 0;
-						if (!alive _nearest) then 
+						private _currSpawnArr = _x;
+						if (toLower(_groupType) in (_currSpawnArr select 0)) then {_heliPads pushBack (_currSpawnArr select 1);};
+					} forEach (_mainBase select 2);
+					{
+						//Check if there are objects blocking the helipad
+						private _nearEntities = [];
+						private _nearEntities = nearestObjects [(getPosATL _x), ["Car","Tank","Air","Ship","CAManBase"], 10];
+									
+						//If nearest object is dead, clean it up
+						if ((count _nearEntities) > 0) then
 						{
-							deleteVehicle _nearest;
-							_nearEntities = _nearEntities - [_nearest];
+							private _nearest = _nearEntities select 0;
+							if (!alive _nearest) then 
+							{
+								deleteVehicle _nearest;
+								_nearEntities = _nearEntities - [_nearest];
+							};
 						};
-					};
+						
+						if ((count _nearEntities) == 0) exitWith {_helipadObj = _x};
+					} forEach _heliPads;
 					
-					if ((count _nearEntities) == 0) exitWith {_helipadObj = _x};
-				} forEach _heliPads;
-				
-				//If we found a valid helipad
-				if (!isNull _heliPadObj) then
-				{
-					//Create helicopter
-					_groupVehicle = [_side, (getPosATL _helipadObj), (getDir _helipadObj), _vehClass] call fnc_srv_createVehicle;
-					
-					//Set Flight Heights
-					switch (toLower(_groupType)) do
+					//If we found a valid helipad
+					if (!isNull _heliPadObj) then
 					{
-						case "airborne": { _groupVehicle flyInHeight 25; };
-						case "gunship": { _groupVehicle flyInHeight 150; };
-					};
+						//Create helicopter
+						_groupVehicle = [_side, (getPosATL _helipadObj), (getDir _helipadObj), _vehID] call fnc_srv_createVehicle;
+						
+						//Set Flight Heights
+						switch (toLower(_groupType)) do
+						{
+							case "airborne": { _groupVehicle flyInHeight 25; };
+							case "gunship": { _groupVehicle flyInHeight 150; };
+						};
 
-					//Create units and put them in the helicopter
+						//Create units and put them in the helicopter
+						{
+							private _unit = [_side, _group, getMarkerPos(format["startLoc_%1",_side]), _x] call fnc_srv_createUnit;
+							_unit moveInAny _groupVehicle;
+						} forEach _unitArray;
+						
+						//Remove money from group for vehicle cost
+						[_group, "grunt", "-", _vehCost] spawn fnc_srv_changeMoney;
+					}
+					else
 					{
-						private _unit = [_side, _group, getMarkerPos(format["startLoc_%1",_side]), _x] call fnc_srv_createUnit;
-						_unit moveInAny _groupVehicle;
-					} forEach _unitArray;
+						//[side _group, "HQ"] commandChat format["Group %1 no helipad available!",_groupName];
+						uiSleep 15;
+					};
 				}
 				else
 				{
-					//[side _group, "HQ"] commandChat format["Group %1 no helipad available!",_groupName];
 					uiSleep 15;
 				};
 			};
@@ -302,9 +457,13 @@ while {true} do
 		//Delete the default waypoints so we can issue orders
 		private _waypoints = waypoints _group;
 		{deleteWaypoint [_group, _forEachIndex]} forEach _waypoints;
+		
+		//Update last known position
+		_lastKnownPosition = getPosATL (leader _group);
 	}
 	else
 	{
+		/* DO WE REALLY WANT THIS?
 		//Check how many units are still alive (we don't want groups with less than 2 people alive to still exist - respawn them)
 		if (_unitCount <= 2) then
 		{
@@ -312,11 +471,15 @@ while {true} do
 				_x setDamage 1;
 			} forEach (units _group);
 		};
+		*/
 	};
 	
 	//Group is alive, perform updates
 	if (_unitCount >= 1) then
 	{
+		//Update last known position
+		_lastKnownPosition = getPosATL (leader _group);
+		
 		//Group has no orders, issue new ones
 		if ((count _groupOrderArr) == 0) then
 		{
@@ -329,29 +492,69 @@ while {true} do
 				case "motorized";
 				case "airborne":
 				{
-					//TODO: Defense logic
+					//Get reasonable ranges based on group type
+					private _reasonableRange = 0;
+					switch (toLower(_groupType)) do
+					{
+						case "infantry": {_reasonableRange = 1000};
+						case "motorized": {_reasonableRange = 2000};
+						case "airborne": {_reasonableRange = 5000};
+					};
 					
-					//Attack a nearest zone
+					//Sort zones by distance
 					private _sortedNearest = [getPosATL (leader _group), -1] call fnc_cmn_setNearestZones;
-					private _nearestZones = [];
+					
+					//Defend a zone if need be (Zone must be under attack and be within a reasonable range)
+					private _nearestSideZones = [];
 					{
 						private _currArr = DNC_Zones select (_x select 1);
-						if ((_currArr select 5) != (side _group)) then {_nearestZones pushBack (_x select 1)};
-						
-						//Only need 2 zones
-						if ((count _nearestZones) == 2) exitWith {};
+						if (((_currArr select 5) == (side _group)) && ((getPosASL (leader _group) distance2D (_currArr select 0)) <= _reasonableRange)) then {_nearestSideZones pushBack _currArr};
 					} forEach _sortedNearest;
-					if ((count _nearestZones) > 0) then
+					while {(count _nearestSideZones) > 0} do
 					{
-						private _zoneToAttack = selectRandom _nearestZones;
-						_groupOrderArr = ["Attack", _zoneToAttack];
+						private _randIdx = round(random(count _nearestSideZones - 1));
+						private _zoneToDefend = _nearestSideZones select _randIdx;
+						private _zoneStrengthFull = if (((_zoneToDefend select 6) select 0) == ((_zoneToDefend select 6) select 1)) then {true} else {false};
+						private _enemiesPresent = [getPosATL (_zoneToDefend select 0), (_zoneToDefend select 3) + 200, (side _group)] call fnc_cmn_getEnemiesInRadius;
 						
-						private _issueOrderCall = [_group, _groupOrderArr] spawn _fncIssueOrders;
-						waitUntil {scriptDone _issueOrderCall};
-					}
-					else
+						//Need to defend the zone
+						if (!_zoneStrengthFull || ((count _enemiesPresent) > 0)) exitWith 
+						{
+							_groupOrderArr = ["Defend", _randIdx];
+							private _issueOrderCall = [_group, _groupOrderArr] spawn _fncIssueOrders;
+							waitUntil {scriptDone _issueOrderCall};
+						};
+						
+						//If the zone is ok, remove it from the array and select the next one
+						_nearestSideZones deleteAt _randIdx;
+					};
+					
+					//Attack a zone
+					if ((count _groupOrderArr) == 0) then
 					{
-						//No Zones to attack
+						private _iterations = 0;
+						private _nearestEnemyZones = [];
+						while {(count(_nearestEnemyZones) <= 0) && (_iterations < 8)} do //Infantry range at 8 iterations is over 20km, no way that should happen
+						{
+							{
+								private _currArr = DNC_Zones select (_x select 1);
+								if (((_currArr select 5) != (side _group)) && (((getPosASL (leader _group)) distance2D (_currArr select 0)) <= _reasonableRange)) then {_nearestEnemyZones pushBackUnique (_x select 1)};
+							} forEach _sortedNearest;
+							
+							//If we didn't find any zones to attack, try looking further
+							_resonableRange = _reasonableRange * 1.5;
+							_iterations = _iterations + 1;
+						};
+
+						//Attack a zone. If there is none, game should be over
+						if ((count _nearestEnemyZones) > 0) then
+						{
+							private _zoneToAttack = selectRandom _nearestEnemyZones;
+							_groupOrderArr = ["Attack", _zoneToAttack];
+							
+							private _issueOrderCall = [_group, _groupOrderArr] spawn _fncIssueOrders;
+							waitUntil {scriptDone _issueOrderCall};
+						};
 					};
 				};
 				
@@ -424,37 +627,45 @@ while {true} do
 							//If the group has a vehicle assigned to it
 							if (_vehClass != "") then
 							{
-								//If the group is far enough away from their object, spawn in their vehicle and use that to get closer
-								if (isNull _groupVehicle) then
+								//Can the group afford a vehicle
+								private _groupMoney = missionNameSpace getVariable [format["%1_Money",str(_group)], 0];
+								if (_groupMoney >= _vehCost) then
 								{
-									//Don't spawn the vehicle so soon again
-									if ((diag_tickTime - _groupVehicleTimeout) > 60) then
+									//If the group is far enough away from their object, spawn in their vehicle and use that to get closer
+									if (isNull _groupVehicle) then
 									{
-										//If group is not under attack
-										if (behaviour (leader _group) != "STEALTH" && behaviour (leader _group) != "COMBAT") then
+										//Don't spawn the vehicle so soon again
+										if ((diag_tickTime - _groupVehicleTimeout) > 60) then
 										{
-											//Get the zone array
-											private _zoneArr =+ DNC_Zones select (_groupOrderArr select 1);
-											if (((leader _group) distance2D (_zoneArr select 0)) > 300 ) then
+											//If group is not under attack
+											if (behaviour (leader _group) != "STEALTH" && behaviour (leader _group) != "COMBAT") then
 											{
-												//Get creation position
-												private _createPos = [getPosATL (leader _group), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
-												while {(_createPos select 0) == -1} do {_createPos = [getPosATL (leader _group), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
-				
-												//Create the group vehicle
-												_groupVehicle = [_side, _createPos, random(360), _vehClass] call fnc_srv_createVehicle;
-												if (_groupType == "airborne") then {_groupVehicle flyInHeight 25;};												
-												
-												//Move units of group into vehicle
-												{_x moveInAny _groupVehicle} forEach (units _group);
-												
-												//Update waypoint type to move
+												//Get the zone array
+												private _zoneArr =+ DNC_Zones select (_groupOrderArr select 1);
+												if (((leader _group) distance2D (_zoneArr select 0)) > 300 ) then
 												{
-													_x setWaypointType "MOVE";
-													_x setWaypointSpeed "NORMAL";
-												} forEach (waypoints _group);
+													//Get creation position
+													private _createPos = [getPosATL (leader _group), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;
+													while {(_createPos select 0) == -1} do {_createPos = [getPosATL (leader _group), random(25 * 0.25), 50, false, [false], _vehClass] Call fnc_cmn_getRandomSafePos;};
+					
+													//Create the group vehicle
+													_groupVehicle = [_side, _createPos, random(360), _vehID] call fnc_srv_createVehicle;
+													if (_groupType == "airborne") then {_groupVehicle flyInHeight 25;};												
+													
+													//Move units of group into vehicle
+													{_x moveInAny _groupVehicle} forEach (units _group);
+													
+													//Update waypoint type to move
+													{
+														_x setWaypointType "MOVE";
+														_x setWaypointSpeed "NORMAL";
+													} forEach (waypoints _group);
+													
+													//Remove money from group for vehicle cost
+													[_group, "grunt", "-", _vehCost] spawn fnc_srv_changeMoney;
 
-												//[side _group, "HQ"] commandChat format["Group %1 driving to objective!",_groupName];
+													//[side _group, "HQ"] commandChat format["Group %1 driving to objective!",_groupName];
+												};
 											};
 										};
 									};
@@ -570,6 +781,7 @@ while {true} do
 											if (alive _groupVehicle) then
 											{
 												//Refund if it's still alive
+												[_group, "grunt", "+", _vehCost] spawn fnc_srv_changeMoney;
 											};
 											deleteVehicle _groupVehicle;
 										};

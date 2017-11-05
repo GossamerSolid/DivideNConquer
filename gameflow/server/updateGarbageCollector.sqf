@@ -9,7 +9,6 @@ while {true} do //todo
 	DNC_SVAR_GARBAGE_LOCKED = true;
 	
 	//Update garbage queue contents
-	private _idxToDelete = [];
 	{
 		//Only update if array - otherwise it's an item that should be removed from the queue
 		if (typeName _x == "ARRAY") then
@@ -17,19 +16,28 @@ while {true} do //todo
 			_object = _x select 0;
 			_timer = _x select 1;
 			
-			//Delete object and mark index for removal if time is lower than 1, otherwise decrement time
+			//Delete object and remove if time is lower than 1
 			if (diag_tickTime >= _timer || isNull _object) then
 			{
-				deleteVehicle _object;
-				_idxToDelete pushBack _forEachIndex;
+				//If object isn't null, delete it
+				if (!isNull _object) then 
+				{
+					//If it's infantry, clean up the weapon holders on the ground
+					if (_object isKindOf "Man") then
+					{
+						{
+							if (typeOf _x == "GroundWeaponHolder") then {deleteVehicle _x};
+						} forEach ((getPosATL _object) nearObjects 15);
+					};
+					
+					deleteVehicle _object;
+				};
+				
+				//Remove the element from the garbage collector array
+				DNC_SVAR_GARBAGE_ARRAY deleteAt _forEachIndex;
 			};
 		};
 	} forEach DNC_SVAR_GARBAGE_ARRAY;
-	
-	//Run through and remove deleted indexes
-	{
-		DNC_SVAR_GARBAGE_ARRAY deleteAt _x;
-	} forEach _idxToDelete;
 	
 	//Allow changes to garbage array
 	DNC_SVAR_GARBAGE_LOCKED = false;

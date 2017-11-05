@@ -52,11 +52,11 @@ if (_name != "__SERVER__") then
 	_playerObj removeAllMPEventHandlers "MPKilled";
 	if ((side _playerObj) == west) then
 	{
-		_playerObj addMPEventHandler ["MPKilled",{if (local (_this select 0)) then {(_this select 0) addRating 99999;}; if (isServer) then {[(_this select 0), west, true, (_this select 1), (side (group (_this select 1))), (isPlayer (_this select 1))] call fnc_srv_unitKilled;};}];
+		_playerObj addMPEventHandler ["MPKilled",{if (isServer) then {[(_this select 0), west, true, (_this select 1), (side (group (_this select 1))), (isPlayer (_this select 1))] call fnc_srv_unitKilled;};}];
 	}
 	else
 	{
-		_playerObj addMPEventHandler ["MPKilled",{if (local (_this select 0)) then {(_this select 0) addRating 99999;}; if (isServer) then {[(_this select 0), east, true, (_this select 1), (side (group (_this select 1))), (isPlayer (_this select 1))] call fnc_srv_unitKilled;};}];
+		_playerObj addMPEventHandler ["MPKilled",{if (isServer) then {[(_this select 0), east, true, (_this select 1), (side (group (_this select 1))), (isPlayer (_this select 1))] call fnc_srv_unitKilled;};}];
 	};
 	
 	//Send variables to client

@@ -1,10 +1,14 @@
 //Common functions
 fnc_cmn_getAllNetIDs = compile preprocessFileLineNumbers "functions\common\getAllNetIDs.sqf";
 fnc_cmn_getArrayIndex = compile preprocessFileLineNumbers "functions\common\getArrayIndex.sqf";
+fnc_cmn_getEnemiesInRadius = compile preprocessFileLineNumbers "functions\common\getEnemiesInRadius.sqf";
 fnc_cmn_getObjFromUID = compile preprocessFileLineNumbers "functions\common\getObjFromUID.sqf";
 fnc_cmn_getRandomSafePos = compile preprocessFileLineNumbers "functions\common\getRandomSafePos.sqf";
 fnc_cmn_getSideMembers = compile preprocessFileLineNumbers "functions\common\getSideMembers.sqf";
 fnc_cmn_getSideName = compile preprocessFileLineNumbers "functions\common\getSideName.sqf";
+fnc_cmn_getValidSpawnLocations = compile preprocessFileLineNumbers "functions\common\getValidSpawnLocations.sqf";
+fnc_cmn_getVehicleConfig = compile preprocessFileLineNumbers "functions\common\getVehicleConfig.sqf";
+fnc_cmn_getVehicleCost = compile preprocessFileLineNumbers "functions\common\getVehicleCost.sqf";
 fnc_cmn_mergeArrays = compile preprocessFileLineNumbers "functions\common\mergeArrays.sqf";
 fnc_cmn_setNearestZones = compile preprocessFileLineNumbers "functions\common\getNearestZones.sqf";
 fnc_cmn_setPosAGLS = compile preprocessFileLineNumbers "functions\common\setPosAGLS.sqf";
@@ -15,6 +19,9 @@ private _generalConfig = compile preprocessFileLineNumbers "config\general.sqf";
 
 private _gruntConfig = compile preprocessFileLineNumbers "config\grunts.sqf";
 [] call _gruntConfig;
+
+private _vehicleConfig = compile preprocessFileLineNumbers "config\vehicles.sqf";
+[] call _vehicleConfig;
 
 private _zoneConfig = compile preprocessFileLineNumbers (format["config\zones_%1.sqf", worldName]);
 if (!isNil "_zoneConfig") then 

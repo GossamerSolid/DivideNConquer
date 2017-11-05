@@ -1,6 +1,6 @@
 /*
 	0 - West Bases
-		0 - Base Type (Main, FOB) [Can only have 1 main base]
+		0 - Base Type (Main, FOB, Temp) [Can only have 1 main base]
 		1 - Reference position (used to spawn groups that don't have a specific starting position)
 		2 - Spawn positions array
 			0 - Group type array (one or more groups that can use this)
@@ -14,7 +14,7 @@ DNC_Data_Bases =
 [
 	[
 		[
-			"Main",
+			"Temp",
 			getMarkerPos "startLoc_west",
 			[
 				/*
@@ -33,7 +33,7 @@ DNC_Data_Bases =
 	
 	[
 		[
-			"Main",
+			"Temp",
 			getMarkerPos "startLoc_east",
 			[
 				/*

@@ -22,6 +22,7 @@ private ["_sideOn", "_retType", "_obj", "_sideObj", "_returnArray", "_varName"];
 _sideOn = _this select 0;
 _retType = _this select 1;
 
+private _justPlayers = allPlayers - (entities "HeadlessClient_F");
 _returnArray = [];
 {
 	if (!isNull _x) then
@@ -32,23 +33,27 @@ _returnArray = [];
 			{
 				case "netid":
 				{
-					_returnArray set [count _returnArray, (owner _x)];
+					_returnArray pushBack (owner _x);
 				};
 				case "obj":
 				{
-					_returnArray set [count _returnArray, _x];
+					_returnArray pushBack _x;
 				};
 				case "uid":
 				{
-					_returnArray set [count _returnArray, (getPlayerUID _x)];
+					_returnArray pushBack (getPlayerUID _x);
 				};
 				case "varname":
 				{
-					_returnArray set [count _returnArray, (vehicleVarName _x)];
+					_returnArray pushBack (vehicleVarName _x);
+				};
+				case "all": //Indexed in same order as case statements above
+				{
+					_returnArray pushBack [(owner _x), _x, (getPlayerUID _x), (vehicleVarName _x)];
 				};
 			};
 		};
 	};
-} forEach allPlayers;
+} forEach _justPlayers;
 
 _returnArray 

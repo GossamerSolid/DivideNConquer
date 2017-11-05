@@ -85,6 +85,7 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 	private _hostilesPresent = _zoneArr select 7;
 	private _inactTimeout = _zoneArr select 8;
 	private _defenseGroups = _zoneArr select 9;
+	private _zoneContested = _zoneArr select 10;
 	
 	//Detect incoming enemies (only count west and east, who cares about resistance as they cannot recapture)
 	private _incomingEnemies = [0, 0];
@@ -113,11 +114,21 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 			//Create defenders
 			_defenseGroups = [];
 			{
-				private _vehClass = _x select 0;
+				private _vehID = _x select 0;
 				private _unitArray = _x select 1;
 				private _groupVehicle = objNull;
 				private _currGroup = createGroup _zoneOwner;
 				_currGroup deleteGroupWhenEmpty true;
+				
+				private _vehClass = "";
+				if (_vehID != "") then
+				{
+					private _vehConfigArr = _vehID call fnc_cmn_getVehicleConfig;
+					if (!isNil "_vehConfigArr") then
+					{
+						_vehClass = _vehConfigArr select 1;
+					};
+				};
 				
 				private _classForPosition = if (_vehClass != "") then {_vehClass} else {"O_Soldier_GL_F"};
 				
@@ -125,9 +136,9 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 				while {(_groupPos select 0) == -1} do {_groupPos = [(getPosATL _zoneObj), random(50), random(_captureRadius), false, [false], _classForPosition] Call fnc_cmn_getRandomSafePos;};
 				
 				//Create a vehicle if the group has one
-				if (_vehClass != "") then
+				if (_vehID != "") then
 				{
-					_groupVehicle = [_zoneOwner, _groupPos, random(360), _vehClass] call fnc_srv_createVehicle;
+					_groupVehicle = [_zoneOwner, _groupPos, random(360), _vehID] call fnc_srv_createVehicle;
 					_groupVehicle setVariable ["DNC_ZoneDefense", true];
 				};
 				
@@ -240,34 +251,52 @@ while {true} do //Main logic loop TODO - only when gamestate is active
 		private _resistanceCapture = _inZoneArray select 2;
 		private _sideCapturing = _zoneOwner;
 		private _sideCaptureAmt = 0;
+		_zoneContested = false;
+		
 		if (_westCapture > (_eastCapture + _resistanceCapture)) then
 		{
 			_sideCapturing = west;
 			_sideCaptureAmt = (_westCapture - _eastCapture - _resistanceCapture) min DNC_DATA_MAX_CAPTURE_SPEED;
+			if ((_eastCapture + _resistanceCapture) >= DNC_DATA_CONTEST_AMOUNT) then
+			{
+				_zoneContested = true;
+			};
 		};
 		if (_eastCapture > (_westCapture + _resistanceCapture)) then
 		{
 			_sideCapturing = east;
 			_sideCaptureAmt = (_eastCapture - _westCapture - _resistanceCapture) min DNC_DATA_MAX_CAPTURE_SPEED;
+			if ((_westCapture + _resistanceCapture) >= DNC_DATA_CONTEST_AMOUNT) then
+			{
+				_zoneContested = true;
+			};
 		};
 		if(_resistanceCapture > (_westCapture + _eastCapture)) then
 		{
 			_sideCapturing = resistance;
 			_sideCaptureAmt = (_resistanceCapture - _westCapture - _eastCapture) min DNC_DATA_MAX_CAPTURE_SPEED;
+			if ((_westCapture + _eastCapture) >= DNC_DATA_CONTEST_AMOUNT) then
+			{
+				_zoneContested = true;
+			};
 		};
 		
 		//Update zone strength accordingly
-		if (_sideCapturing != _zoneOwner) then
+		if (!_zoneContested) then
 		{
-			//Attacker is winning
-			_zoneStrengthArr set [0, (((_zoneStrengthArr select 0) - _sideCaptureAmt) max 0)];
-		}
-		else
-		{
-			//Defender is winning
-			_zoneStrengthArr set [0, (((_zoneStrengthArr select 0) + _sideCaptureAmt) min (_zoneStrengthArr select 1))];
+			if (_sideCapturing != _zoneOwner) then
+			{
+				//Attacker is winning
+				_zoneStrengthArr set [0, (((_zoneStrengthArr select 0) - _sideCaptureAmt) max 0)];
+			}
+			else
+			{
+				//Defender is winning
+				_zoneStrengthArr set [0, (((_zoneStrengthArr select 0) + _sideCaptureAmt) min (_zoneStrengthArr select 1))];
+			};
+			_zoneArr set [6, _zoneStrengthArr];
 		};
-		_zoneArr set [6, _zoneStrengthArr];
+		_zoneArr set [10, _zoneContested];
 		
 		//The owner needs to be updated if the strength is lower than 1
 		if ((_zoneStrengthArr select 0) < 1) then

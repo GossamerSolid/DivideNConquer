@@ -2,6 +2,7 @@ private _changeID = _this select 0;
 private _changeType = _this select 1;
 private _operation = _this select 2;
 private _value = _this select 3;
+private _playSound = if ((count _this) == 5) then {_this select 4} else {true};
 
 //Make sure money is defined
 if (!isNil "_value") then
@@ -39,7 +40,7 @@ if (!isNil "_value") then
 				_clientID publicVariableClient "DNC_CVAR_MONEY";
 				
 				//Play sound on client
-				[[_clientID], "sound", "playSound", "changeMoney"] spawn fnc_srv_requestClientExec;
+				if (_playSound) then {[[_clientID], "sound", "playSound", "changeMoney"] spawn fnc_srv_requestClientExec;};
 			}
 			else
 			{

@@ -1,6 +1,11 @@
 disableSerialization;
 if (!("client" call fnc_sys_verifyContext)) exitWith {[__FILE__, "error", "Unable to run script due to incorrect context"] spawn fnc_sys_writeError;};
 
+//Set qualities
+setViewDistance 3000;
+setObjectViewDistance 3000;
+setTerrainGrid 35;
+
 //Initialize common
 private _commonInit = compileFinal preprocessFileLineNumbers "init\common.sqf";
 private _commonInitCall = [] spawn _commonInit;
@@ -10,6 +15,7 @@ waitUntil {scriptDone _commonInitCall};
 DNC_CVAR_DYN_MARKERS = [];
 DNC_CVAR_GRUNT_GROUPS = [];
 DNC_3DMarkers = true;
+DNC_CVAR_SIDE = side (group player);
 if (isNil "DNC_CVAR_INCOME") then {DNC_CVAR_INCOME = 0};
 
 //Client functions
@@ -17,6 +23,7 @@ fnc_clt_draw3DMarkers = compile preprocessFileLineNumbers "functions\client\draw
 fnc_clt_drawMapMarkers = compile preprocessFileLineNumbers "functions\client\drawMapMarkers.sqf";
 fnc_clt_getColour = compile preprocessFileLineNumbers "functions\client\getColour.sqf";
 fnc_clt_getVisible3DPos = compile preprocessFileLineNumbers "functions\client\getVisible3DPos.sqf";
+fnc_clt_messages = compile preprocessFileLineNumbers "functions\client\messages.sqf";
 fnc_clt_requestServerExec = compile preprocessFileLineNumbers "functions\client\requestServerExec.sqf";
 fnc_clt_serverFncExec = compile preprocessFileLineNumbers "functions\client\serverFncExec.sqf";
 fnc_clt_zoneCaptured = compile preprocessFileLineNumbers "functions\client\zoneCaptured.sqf";

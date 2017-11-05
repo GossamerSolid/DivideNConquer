@@ -28,6 +28,8 @@ Data Structure:
 12 - Is visible to player's eyes
 */
 
+private _infantryIcon = getText(configFile >> "CfgMarkers" >> "n_inf" >> "Icon");
+
 while {true} do //TODO
 {
 	//Local array which will replace the global afterwards
@@ -62,7 +64,7 @@ while {true} do //TODO
 			if (_objRef isKindOf "Man" && ((vehicle _objRef) == _objRef)) then //Infantry
 			{
 				private _name = "";
-				private _3dMarkerImage = "";
+				private _3dMarkerImage = "\A3\ui_f\data\map\markers\military\dot_CA.paa";
 
 				//Get display name
 				if (isPlayer _objRef) then 
@@ -83,10 +85,8 @@ while {true} do //TODO
 				//Figure out position
 				private _visualPos = [_objRef, "inf"] Call fnc_clt_getVisible3DPos;
 
-				//Big markers for players, small for grunts
-				private _sizeArray = [28, 28];
-
-				private _markerIcon = if ((leader (group _objRef)) == _objRef) then {"iconManOfficer"} else {"iconMan"};
+				//Size
+				private _sizeArray = [20,20];
 
 				//Check if infantry is visible to player
 				private _isVisible = true;
@@ -94,13 +94,13 @@ while {true} do //TODO
 				_markerArray pushBack
 				[
 					(getPosASL _objRef),
-					_markerIcon,
-					(direction (vehicle _objRef)),
+					_infantryIcon,
+					0,
 					_name,
 					_colour,
 					_visualPos,
 					_3dMarkerImage,
-					(cursorTarget == _objRef),
+					(cursorObject == _objRef),
 					(player == _objRef),
 					_objRef,
 					_sizeArray,
@@ -144,20 +144,20 @@ while {true} do //TODO
 		private _objRef = if (typeName _x == "ARRAY") then {_x select 0} else {_x};
 
 		private _crewText = "";
-		private _3dMarkerImage = getText(configFile >> "CfgVehicles" >> (typeOf (vehicle _objRef)) >> "Icon");
-		private _icon = getText(configFile >> "CfgVehicles" >> (typeOf (vehicle _objRef)) >> "Icon");
-		private _direction = direction (vehicle _objRef);
-		if (typeName _x == "ARRAY") then
-		{
-			_3dMarkerImage = _x select 3;
-			_icon = _x select 3;
-			if (!(_x select 6)) then {_direction = 0};
-		};
 
 		private _isPlayer = false;
 		private _colour = ([format["side%1", (side _objRef)], "RGBA"] call fnc_clt_getColour);
 
 		private _visualPos = [_objRef, "veh"] call fnc_clt_getVisible3DPos;
+		
+		//Get icon
+		private _icon = "";
+		if ((typeOf (vehicle _objRef)) isKindOf "Car") then {_icon = "n_motor_inf"};
+		if ((typeOf (vehicle _objRef)) isKindOf "Tank") then {_icon = "n_armor"};
+		if ((typeOf (vehicle _objRef)) isKindOf "Helicopter") then {_icon = "n_air"};
+		if ((typeOf (vehicle _objRef)) isKindOf "Plane") then {_icon = "n_plane"};
+		if ((typeOf (vehicle _objRef)) isKindOf "Ship") then {_icon = "n_naval"};
+		if (_icon != "") then {_icon = getText(configFile >> "CfgMarkers" >> _icon >> "Icon")};
 		
 		//Get crew text
 		{
@@ -184,8 +184,7 @@ while {true} do //TODO
 			};
 		} forEach (crew (vehicle _objRef));
 
-		//Big markers for players, small for grunts
-		private _sizeArray = [28, 28];
+		private _sizeArray = [20, 20];
 
 		//Check if infantry is visible to player
 		private _isVisible = true;
@@ -194,12 +193,12 @@ while {true} do //TODO
 		[
 			(getPosASL (vehicle _objRef)),
 			_icon,
-			_direction,
+			0,
 			_crewText,
 			_colour,
 			_visualPos,
-			_3dMarkerImage,
-			(cursorTarget == _objRef),
+			"\A3\ui_f\data\map\markers\military\dot_CA.paa",
+			(cursorObject == _objRef),
 			_isPlayer,
 			_objRef,
 			_sizeArray,
@@ -213,13 +212,18 @@ while {true} do //TODO
 		private _zoneStrengthPercentage = ((((_x select 6) select 0) / ((_x select 6) select 1)) * 100);
 		private _zoneStrengthImgNum = ceil((8 * _zoneStrengthPercentage) / 100);
 		private _zoneStrengthImg = format["%1resources\images\zone_%2.paa", DNC_MISSIONROOT, _zoneStrengthImgNum max 1];
-
+		private _zoneText = "%1 [%2/%3]";
+		if (_x select 10) then
+		{
+			_zoneText = _zoneText + " (CONTESTED)";
+		};
+		
 		_markerArray pushBack
 		[
 			(getPosASL (_x select 0)),
 			"",
 			0,
-			(_x select 1),
+			format[_zoneText,(_x select 1),((_x select 6) select 0),((_x select 6) select 1)],
 			([format["side%1", (_x select 5)], "RGBA"] call fnc_clt_getColour),
 			([(_x select 0), "zone"] call fnc_clt_getVisible3DPos),
 			_zoneStrengthImg,

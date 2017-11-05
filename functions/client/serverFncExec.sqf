@@ -59,6 +59,12 @@ switch (_function) do
 			};
 		};
 	};
+	
+	//Messages
+	case "messages":
+	{	
+		_parameters spawn fnc_clt_messages;
+	};
 		
 	default
 	{

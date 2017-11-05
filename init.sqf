@@ -17,7 +17,7 @@ guer = resistance;
 civ = civilian;
 
 //Disable raycast sensors (apparently meant to make client performance much better)
-disableRemoteSensors true;
+//disableRemoteSensors true;
 
 //Compile these functions because we might need it right away
 fnc_sys_writeError = compile preprocessFileLineNumbers "functions\system\writeError.sqf";

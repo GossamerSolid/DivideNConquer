@@ -6,7 +6,8 @@
 4 - Capture radius
 5 - Zone Strength
 6 - Structure Array
-7 - Resistance Array
+7 - Defenders Array
+8 - Starting Owner
 */
 
 DNC_Data_Zones =
@@ -22,10 +23,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -39,10 +41,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	
@@ -57,10 +60,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 
 	[
@@ -74,10 +78,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -91,10 +96,14 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["rhsBTR70Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["rhsUAZSpg9Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["rhsUralZU23Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -108,10 +117,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -125,10 +135,14 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["rhsBTR70Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["rhsUAZSpg9Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["rhsUralZU23Nat", ["rhsgref_nat_pmil_crew", "rhsgref_nat_pmil_crew"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -142,10 +156,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -159,10 +174,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -176,10 +192,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -193,10 +210,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		east
 	],
 	
 	[
@@ -210,10 +228,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -227,10 +246,11 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		resistance
 	],
 	
 	[
@@ -244,9 +264,10 @@ DNC_Data_Zones =
 		100,
 		[],
 		[
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]],
-			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_k98", "rhsgref_nat_grenadier_rpg"]]
-		]
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_grenadier_rpg"]],
+			["", ["rhsgref_nat_commander", "rhsgref_nat_machinegunner", "rhsgref_nat_grenadier", "rhsgref_nat_militiaman_kar98k", "rhsgref_nat_specialist_aa"]]
+		],
+		east
 	]
 ];
